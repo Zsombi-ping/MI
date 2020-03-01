@@ -15,6 +15,8 @@ mat = [[ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], # 0
        [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ], # 10
        [ 1, 1, 1, 0, 1, 1, 1, 1, 1, 1 ]] # 11
 
+
+assign = 0
 R = 12
 C = 10
 min_dist = 100000
@@ -49,7 +51,7 @@ def findShortestPathUtil(mat, visited, x, y, dist):
     global R
     global rowNum
     global colNum
-    global shortest_path
+    global assign
 
     if y == C-1:
         global min_dist
@@ -60,13 +62,14 @@ def findShortestPathUtil(mat, visited, x, y, dist):
         return
 
     visited[x][y] = True
-
+    assign += 1
 
     for i in range(4):
         if isValid(x + rowNum[i], y + colNum[i], visited) and isSafe(mat, visited, x + rowNum[i], y + colNum[i]):
             findShortestPathUtil(mat, visited, x + rowNum[i], y + colNum[i], dist + 1)
 
     visited[x][y] = False
+    assign += 1
 
 
 def findShPath(mat):
@@ -96,3 +99,4 @@ findShPath(mat)
 stop = timeit.default_timer()
 
 print('Time: ', stop - start)
+print("Assignments needed : ", assign)

@@ -3,8 +3,8 @@ Adott egy n*m-es pálya és azon tetszőleges mennyiségű akna. Úgy kell eljut
 (Az akna csak akkor robban, hogy ha egy felette, alatta vagy egy tőle jobbra, balra lévő mezőn állunk.)
 
 Két algoritmus segítségével oldjuk meg:
-* nyers backtracking algoritmus -> futási idő: 0,135 ms
-* backtracking + MVR + forward checking algoritmus -> futási idő: 0,06 ms
+* nyers backtracking algoritmus -> értékadások száma: 13034
+* backtracking + MVR + forward checking algoritmus -> értékadások száma: 8846
 
 Készítették:
 * Dániel Zsombor
