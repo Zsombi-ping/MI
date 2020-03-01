@@ -81,9 +81,7 @@ def findShPath (mat):
                 break
 
     if min_dist != 100000:
-        print ("Length of shortest path is : ")
-        print (min_dist)
-
+        print("Length of shortest path is: {}".format(min_dist))
     else :
         print ("Destination not reachable !")
 
