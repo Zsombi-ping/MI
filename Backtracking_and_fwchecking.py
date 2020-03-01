@@ -2,6 +2,8 @@ import sys
 import numpy as np
 import timeit
 
+
+assign = 0
 R = 12
 C = 10
 min_dist = 100000
@@ -45,6 +47,7 @@ def findShortestPathUtil (mat , visited , i , j , dist):
     global R
     global rowNum
     global colNum
+    global assign
 
     if j == C-1:
         global min_dist
@@ -55,12 +58,14 @@ def findShortestPathUtil (mat , visited , i , j , dist):
         return
     
     visited[i][j] = 1
+    assign+=1
 
     for k in range (0,4):
         if isValid(i + rowNum[k], j + colNum[k]) and isSafe(mat , visited , i + rowNum[k] , j + colNum[k]):
             findShortestPathUtil(mat , visited , i + rowNum[k], j + colNum[k], dist + 1)
     
     visited[i][j] = 0
+    assign+=1
 
 
 def findShPath (mat):
@@ -68,6 +73,7 @@ def findShPath (mat):
     global min_dist
     global R
     global C
+
 
     markUnsafeCells(mat)
 
@@ -109,3 +115,5 @@ findShPath(mat)
 stop = timeit.default_timer()
 
 print('Time: ', stop - start)  
+
+print("Assignments needed : ", assign)
